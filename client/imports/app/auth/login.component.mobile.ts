@@ -30,33 +30,33 @@ export class MobileLoginComponent implements OnInit {
 
   send() {
     if (this.phoneForm.valid) {
-      Accounts.requestPhoneVerification(this.phoneForm.value.phone, (err) => {
-        this.zone.run(() => {
-          if (err) {
-            this.error = err.reason || err;
-          } else {
-            this.phone = this.phoneForm.value.phone;
-            this.error = '';
-            this.isStepTwo = true;
-          }
-        });
-      });
+      //Accounts.requestPhoneVerification(this.phoneForm.value.phone, (err) => {
+      //  this.zone.run(() => {
+      //    if (err) {
+      //      this.error = err.reason || err;
+      //    } else {
+      //      this.phone = this.phoneForm.value.phone;
+      //      this.error = '';
+      //      this.isStepTwo = true;
+      //    }
+      //  });
+      //});
     }
   }
 
 
   verify() {
     if (this.verifyForm.valid) {
-      Accounts.verifyPhone(this.phone, this.verifyForm.value.code, (err) => {
-        this.zone.run(() => {
-          if (err) {
-            this.error = err.reason || err;
-          }
-          else {
-            this.router.navigate(['/']);
-          }
-        });
-      });
+      //Accounts.verifyPhone(this.phone, this.verifyForm.value.code, (err) => {
+      //  this.zone.run(() => {
+      //    if (err) {
+      //      this.error = err.reason || err;
+      //    }
+      //    else {
+      //      this.router.navigate(['/']);
+      //    }
+      //  });
+      //});
     }
   }
 }

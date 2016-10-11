@@ -1,0 +1,22 @@
+<form [formGroup]="addForm" (ngSubmit)="addRedirect()" class="form-inline" style="margin-bottom: 10px;">
+    <h4>New Redirect</h4>
+  <fieldset class="form-group col-md-12">
+    <!--<label for="partyName">Hostname</label>-->
+    <input id="partyName" class="form-control" type="text" formControlName="name" placeholder="Hostname" />
+
+    <label for="description">/</label>
+    <input id="description" class="form-control" type="text" formControlName="description" placeholder="Path">
+      redirect to
+    <!--<label for="redirect_name">New Url</label>-->
+    <input id="redirect_name" class="form-control" type="text" formControlName="redirect" placeholder="http://">
+
+    <!--<div class="checkbox">-->
+      <!--<label>-->
+        <!--<input type="checkbox" formControlName="public">-->
+        <!--Public-->
+      <!--</label>-->
+    <!--</div>-->
+
+    <button type="submit">Add</button>
+  </fieldset>
+</form>

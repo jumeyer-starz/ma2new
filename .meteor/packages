@@ -21,7 +21,6 @@ xolvio:cleaner
 hwillson:stub-collections
 dispatch:mocha-phantomjs
 shell-server@0.2.1
-accounts-password@1.3.0
 tmeasday:publish-counts
 check@1.2.3
 email@1.1.17_1
@@ -29,3 +28,5 @@ jalik:ufs
 jalik:ufs-gridfs
 mys:accounts-phone
 mys:fonts
+typ:accounts-ldap
+accounts-password

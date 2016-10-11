@@ -39,6 +39,7 @@
     "angular2-meteor-accounts-ui": "^0.8.0",
     "angular2-meteor-polyfills": "^0.1.1",
     "angular2-meteor-tests-polyfills": "0.0.2",
+    "bcrypt": "^0.8.7",
     "gm": "^1.23.0",
     "ionic-angular": "^2.0.0-rc.0-201610101823",
     "ionic-selector": "0.0.2",

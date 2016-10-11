@@ -1,0 +1,53 @@
+<div class="row ma-party-details-container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <legend>Redirect Properties:</legend>
+    <form class="form-horizontal" *ngIf="party" (submit)="saveParty()">
+      <div class="form-group">
+        <label>Host Name</label>
+        <input [disabled]="!isOwner" type="text" [(ngModel)]="party.name" name="name" class="form-control">
+      </div>
+
+        <div class="form-group">
+        <label>Path</label>
+        <input [disabled]="!isOwner" type="text" [(ngModel)]="party.description" name="description" class="form-control">
+        </div>
+
+        <div class="form-group">
+        <label>URL to redirect to</label>
+        /<input [disabled]="!isOwner" type="text" [(ngModel)]="party.redirect" name="redirect" class="form-control">
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" _formControlName="testEnabled" checked>
+                Test
+            </label>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" _formControlName="prodEnabled" checked>
+                Production
+            </label>
+        </div>
+
+
+        <div class="form-group">
+          <button class="btn btn-danger pull-right"  (click)="removeParty(party)" >
+              <i class="fa fa-times"></i></button>
+          <button [disabled]="!isOwner" type="submit" class="btn btn-primary">Save</button>
+            <a [routerLink]="['/redirects']" class="btn">Back</a>
+      </div>
+
+
+
+    </form>
+
+    <ul class="ma-invite-list" *ngIf="isOwner || isPublic">
+
+    </ul>
+
+
+
+  </div>
+</div>

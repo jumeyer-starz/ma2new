@@ -7,12 +7,17 @@ import {SignupComponent} from "./auth/singup.component";
 import {RecoverComponent} from "./auth/recover.component";
 import {LoginComponent} from "./auth/login.component.web";
 
+import { RedirectListComponent } from './redirects/redirects-list.component';
+
 export const routes: Route[] = [
-  { path: '', component: PartiesListComponent },
-  { path: 'party/:partyId', component: PartyDetailsComponent, canActivate: ['canActivateForLoggedIn'] },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'recover', component: RecoverComponent }
+  //{ path: '', component: PartiesListComponent },
+  //{ path: 'party/:partyId', component: PartyDetailsComponent, canActivate: ['canActivateForLoggedIn'] },
+  { path: 'login',   component: LoginComponent },
+  //{ path: 'signup',  component: SignupComponent },
+  //{ path: 'recover', component: RecoverComponent },
+
+  { path: '', component: RedirectListComponent },
+  { path: 'redirects', component: RedirectListComponent }
 ];
 
 export const ROUTES_PROVIDERS = [{

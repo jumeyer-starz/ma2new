@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Meteor } from 'meteor/meteor';
 
+
+//noinspection TypeScriptCheckImport
 import template from './login.component.web.html';
 
 @Component({
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      user:     ['', Validators.required],
       password: ['', Validators.required]
     });
 
@@ -25,16 +27,36 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.error = "Logging In...";
     if (this.loginForm.valid) {
-      Meteor.loginWithPassword(this.loginForm.value.email, this.loginForm.value.password, (err) => {
-        if (err) {
-          this.zone.run(() => {
-            this.error = err;
-          });
-        } else {
-          this.router.navigate(['/']);
-        }
-      });
+      //Meteor.loginWithPassword(this.loginForm.value.email, this.loginForm.value.password, (err) => {
+      //  if (err) {
+      //    this.zone.run(() => {
+      //      this.error = err;
+      //    });
+      //  } else {
+      //    this.router.navigate(['/']);
+      //  }
+      //});
+
+      Meteor.loginWithLDAP(this.loginForm.value.user, this.loginForm.value.password,
+          {
+            dn: "cn="+this.loginForm.value.user+",dc=example,dc=com",
+            search: "(objectclass=*)"
+          },
+          (err, success) => {
+            if (err) {
+              this.error = err;
+              console.log(err.reason);
+            }
+            else {
+              console.log("creds accepted!")
+              console.log(success);
+
+              this.router.navigate(['/redirects']);
+            }
+         }
+        );
     }
   }
 }

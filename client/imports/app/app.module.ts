@@ -9,6 +9,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { AppComponent } from "./app.component.web";
 import { routes, ROUTES_PROVIDERS } from './app.routes';
 import { PARTIES_DECLARATIONS } from './parties';
+import { REDIRECT_DECLARATIONS } from './redirects';
 import { SHARED_DECLARATIONS } from './shared';
 import { MdButtonModule } from "@angular2-material/button";
 import { MdToolbarModule } from "@angular2-material/toolbar";
@@ -71,7 +72,8 @@ else {
       AppComponent,
       ...PARTIES_DECLARATIONS,
       ...SHARED_DECLARATIONS,
-      ...AUTH_DECLARATIONS
+      ...AUTH_DECLARATIONS,
+      ...REDIRECT_DECLARATIONS
     ],
     providers: [
       ...ROUTES_PROVIDERS
